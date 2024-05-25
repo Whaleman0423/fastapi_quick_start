@@ -1,0 +1,19 @@
+version: '3'
+services:
+  my-python-app:
+    # 使用上面建立的Docker映像檔
+    container_name: my-fastapi-app
+    build:
+      context: .
+      dockerfile: Dockerfile-dev
+    # 將容器的 8000 端口映射到主機的 8000 端口(fastapi預設端口 8000)
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    stdin_open: true
+    tty: true
+    volumes:
+      - .:/app
+    # 可以根據需要設定其他配置
+    # volumes, environment, networks, 等等
