@@ -1,5 +1,8 @@
 # 實作 Flask API 基礎入門
 
+## v2.0.0
+此版本結合 pydantic 與抽象類
+
 ## 使用流程
 ### 0. 設置 .env
 .env
@@ -21,7 +24,7 @@ fastapi dev main.py
 # 或
 uvicorn main:app --host 0.0.0.0 --reload
 # 更換端口 5000
-uvicorn main:app --host 0.0.0.0 --port 5000
+uvicorn main:app --host 0.0.0.0 --port 5000 --reload
 
 # 生產環境執行
 uvicorn main:app --host 0.0.0.0
@@ -37,12 +40,5 @@ ReDoc 介面更注重文件的可讀性和佈局，適合用於產生最終的AP
 ### 4. 訪問 API
 1. GET, "/"
 2. GET, "/persons"
-3. POST, "/person", body raw json
-```
-{
-    "id": 0,
-    "name": "Jack",
-    "gender": "Female"
-}
-```
-4. GET, "/person?id=1"
+3. GET, "/person?id=1"  
+回傳 habit json
